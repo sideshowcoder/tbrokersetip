@@ -66,5 +66,8 @@ if [ -z $TB_IPV4 ]; then
 fi
 MD5PASS=$(md5 -qs $TB_PASS)
 
-# run curl to actually set the ip see https://ipv4.tunnelbroker.net/ipv4_end.php for details
+# run curl to set the ip see https://ipv4.tunnelbroker.net/ipv4_end.php for details
 curl -sk "https://ipv4.tunnelbroker.net/ipv4_end.php?ipv4b=$TB_IPV4&pass=$MD5PASS&user_id=$TB_USERID&tunnel_id=$TB_GTUNID"
+EXIT=$?
+echo
+exit $EXIT
